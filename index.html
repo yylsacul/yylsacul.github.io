@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas - Portfolio</title>
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap'); */
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #00ccff;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s forwards;
+        }
+
+        @keyframes shine {
+            0% {
+                top: -50%;
+                left: -50%;
+            }
+
+            100% {
+                top: 150%;
+                left: 150%;
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                top: -50%;
+                left: -100%;
+            }
+
+            100% {
+                top: 150%;
+                left: 150%;
+            }
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        img {
+            max-width: 100%;
+            /* Ensure the image does not exceed container width */
+            max-height: 100%;
+            /* Ensure the image does not exceed container height */
+        }
+
+        .subtitle {
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        .project {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project:hover::before {
+            opacity: 0.1;
+        }
+
+        .project h3 {
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .project a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.3s ease;
+        }
+
+        .project a:hover::before {
+            left: 100%;
+        }
+
+        .project a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(20px);
+        }
+
+        #scroll-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Lucas Likes to Scratch 😺</h1>
+            <p class="subtitle">🅰️ I created this page for DSA.</p>
+            <p class="subtitle"><a href="https://dub.sh/llyy">https://dub.sh/llyy</a></p>
+            <p class="subtitle"><a href="https://yylsacul.github.io/">https://yylsacul.github.io/</a></p>
+            <br>
+            <p class="subtitle">See this page on your device</p>
+            <p><img src="llyy-qrcode.png"></p>
+
+        </div>
+    </header>
+    <br>
+    <div class="container">
+
+        <div style="text-align: center;">
+            <p>Technology is something I'm super excited about because I love to play computer games.
+
+                I enjoy making games too. I feel very happy whenever I get good comments on the games I make.
+
+                However, the games I make are not as good as the games I play. I'm always trying to improve my games by
+                learning from Youtube tutorials.
+
+                My parents have also told me games actually require a lot of mathematics, physics and science knowledge
+                and I enjoy learning how to program.
+
+                Getting accepted into a school with great teachers that has a focus in technology can help me to
+                understand how to build games better.
+
+                I'm eager to learn new things that are useful and discover new technology.
+
+                I know being in a technology focused school will also help me to prepare for the harder classes in
+                University.
+
+                Once, I saw this video on Youtube about how robots are built in China and U.S. and I hope I can learn
+                how to build them one day.
+
+                Lastly, I'm hoping to meet new friends who also love games and are as excited about technology as I am.
+
+                It would be great to have friends who share my interests so that we can learn from each other and create
+                things together.
+
+                Thank you for considering my application.
+
+
+            </p>
+            <br>
+            <p>
+                I promise to work hard and produce quality work!
+                <br>
+                Yours sincerely,
+                Lucas
+            </p>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="projects" id="projects">
+            <!-- Projects will be dynamically added here -->
+        </section>
+    </main>
+
+    <div class="container">
+        <div style="text-align: center;">
+            <p>My parents asked the Head of CCA for a testimonial!</p>
+        </div>
+    </div>
+    <br>
+    <p></p>
+    <div class="container" style="text-align: center;">
+        <img src="testimonial.png">
+        <p></p>
+        <img src="cca.png">
+    </div>
+
+    <script>
+        const projects = [
+            { title: "Beat Tiles", description: "Rhythm Game.  Press correct keys to win!", link: "beattiles.html", thumbnail: "beattiles.png" },
+            { title: "Rubbish Crisis (2023)", description: "National Primary Game Creation & Coding Competition 2023. Dispose or Recycle?", link: "npgc3.html", thumbnail: "npgc3.png" },
+            { title: "Solar Spark (2024) WIP", description: "National Primary Game Creation & Coding Competition 2024 (Clicker Game)", link: "solarspark.html", thumbnail: "solarspark.png" },
+            { title: "Cube's Travels", description: "Get to the Green Flag and win!", link: "cubestravels.html", thumbnail: "cubestravels.png" },
+            { title: "Electricity Clicker", description: "Just a clicker game with a cheat code: 'Clicker Games 4 the win!'", link: "electricityclicker.html", thumbnail: "electricityclicker.png" },
+            { title: "Parallax Experiment", description: "I want to learn how to create parallax effects in my games!!", link: "parallaxexperiment.html", thumbnail: "parallaxexperiment.png" },
+        ];
+
+        const projectsContainer = document.getElementById('projects');
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        projects.forEach((project, index) => {
+            const projectElement = document.createElement('div');
+            projectElement.classList.add('project');
+            projectElement.innerHTML = `
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <p><img src="${project.thumbnail}"></p>
+                <a href="${project.link}" target="_blank">View Project</a>
+            `;
+            projectElement.style.animationDelay = `${index * 0.1}s`;
+            projectsContainer.appendChild(projectElement);
+        });
+    </script>
+</body>
+
+</html>
